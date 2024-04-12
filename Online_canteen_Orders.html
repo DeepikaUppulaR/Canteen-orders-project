@@ -1,0 +1,948 @@
+4.2	Code
+Register.html
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>Register</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="floating-labels.css" rel="stylesheet">
+  </head>
+  <body>
+    <form class="form-signin" method="post" enctype="multipart/form-data" action="verify">
+      {% csrf_token %}
+      <div class="text-center mb-4">
+        <img class="mb-4" src="/images/logo.jpg" alt="" width="100" height="100"></div>
+      <h3 style="position: absolute;right:720px"><b>SIGNUP</b></h3>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="fname" placeholder="First Name"
+         style="width: 250px;position: absolute; right: 630px;top:190px"  required autofocus></div>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="lName" placeholder="Last Name"
+         style="width: 250px;position:absolute;right: 630px;top:240px" required></div>
+      <div class="form-label-group">
+        <input type="number" name="phNo" maxlength="10" minlength="10"  class="form-control" 
+        placeholder="Phone number" style="width: 250px;position: absolute; right: 630px;top:290px"  required></div>
+      <div class="form-label-group" style="position: absolute;right:600px;top:340px">
+        Gender:&emsp;&emsp;<input  class="form-check-input" type="radio" name="gender" value="male">Male&emsp;&emsp;
+        <input class="form-check-input" type="radio" name="gender" value="female" >Female&emsp;&emsp;
+        <input class="form-check-input" type="radio" name="gender" value="other">other</div>
+      <div class="form-label-group">
+        <input type="email"  class="form-control" name="email" placeholder="Email" 
+        style="width: 250px;position:absolute;right: 630px;top:390px" required></div>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="uName" placeholder="Username" 
+        style="width: 250px;position:absolute;right: 630px;top:440px" required></div>
+      <div class="form-label-group">
+        <input type="password"  class="form-control" name="pWord" placeholder="password" 
+        style="width: 250px;position:absolute;right: 630px;top:490px" required></div>
+      <div class="form-label-group">
+        <input type="password"  class="form-control" name="cPWord" placeholder="confirm password" 
+        style="width: 250px;position:absolute;right: 630px;top:540px" required></div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 250px;position: absolute ;right:630px ;top:600px">Sign in</button>
+    </form>
+  </body>
+</html>
+
+
+Login.html
+<!doctype html>
+<html lang="en">
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Login</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="floating-labels.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <form class="form-signin" method="post" enctype="multipart/form-data" action="login">
+      {% csrf_token %}
+      <div class="text-center mb-4">
+        <img class="mb-4" src="/images/logo.jpg" alt="" width="100" height="100">
+      </div>
+      <h3 style="position: absolute;right:720px"><b>LOGIN</b></h3>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="uName" placeholder="Username" 
+        style="width: 250px;position: absolute; right: 630px;top:190px"  required autofocus>
+      </div>
+      <div class="form-label-group">
+        <input type="password"  class="form-control" name="pass" placeholder="Password" 
+        style="width: 250px;position:absolute;right: 630px;top:240px" required>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" 
+      style="width: 250px;position: absolute ;right:630px ;top:300px">Sign in</button>
+    </form>
+  </body>
+</html>
+
+
+Layout.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    {% block head %}
+    {% endblock %}
+</head>
+<body class="b">
+    {% include 'signup/include/navbar.html' %}
+    <div class="container">
+   {% block body %}{% endblock %} 
+    </div>
+</body>
+</html>
+
+Index.html
+<!doctype html>
+<html lang="en">
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Signup</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+      {% load static %}
+    <img class="mb-4" src="/images/logo.jpg" width="100" height="100"/>
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;">   Welcome to Canteen Orders App</h1>
+    <centre>
+    <form class="form-signin" action="register">
+      <button class="btn btn-lg btn-primary btn-block" style="width: 250px;position: absolute ;right:630px " >Signup</button>
+    </form>
+    <br>
+    <form class="form-signin" action="signin">
+        <button class="btn btn-lg btn-primary btn-block" style="width: 250px;position: absolute ;right:630px;top:250px " >Login</button>
+    </form>
+    </centre>
+  </body>
+</html>
+
+
+Home.html
+{% extends 'signup/layout.html' %}
+{% block body %}
+<head>
+        <style type="text/css">
+            td,th
+            {
+                padding:0 15px 0 15px;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 18px;
+            }
+            table{
+                border-collapse: separate;
+                border-spacing: 5px;
+            }
+            </style>
+</head>
+    <body style="align-content: center;">
+        <centre>
+        <form method="post" enctype="multipart/form-data" action="cartp">
+        {% csrf_token %}
+        <pre>
+            
+        </pre>
+        <b style="font-size: 20px;">BREAKFAST</b>
+        <div name="breakfast" id='bf'>
+        <pre>
+        </pre>
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <th>    </th>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in bf %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <pre>
+        </pre>
+        <b style="font-size: 20px;">LUNCH</b>
+        <pre>
+        </pre>
+        <div name="lunch" id='lch' >
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <td>    </td>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in lch %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <pre>
+        </pre>
+        <b style="font-size: 20px;">SNACKS</b>
+        <pre>
+        </pre>
+        <div name="snamcks" id='sck'>
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <td>    </td>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in sck %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <pre>
+
+        </pre>
+        <input class="btn btn-lg btn-primary btn-block" style="width: 200px" type="submit" name="submit" value="ADD TO CART">
+        </form>
+        </centre>
+    </body>
+
+Cart.html
+{% extends 'signup/layout.html' %}
+{% block body %}
+<head>
+        <style type="text/css">
+            td,th
+            {
+                padding:0 15px 0 15px;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 18px;
+            }
+            table{
+                border-collapse: separate;
+                border-spacing: 5px;
+            }
+            </style>
+</head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="cmplt">
+            {% csrf_token %}
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>     </th>
+                <th>TYPE</th>
+                <th>     </th>
+                <th>PRICE</th>
+                
+                <th>QUANTITY</th>
+            </tr>
+            {% for item in list %}
+            
+            <tr>
+                <td>{{item.name}}</td>
+                <th>     </th>
+                <td>{{item.typeof}}</td>
+                <th>     </th>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+        <pre>
+
+            
+        </pre>
+        Total value:{{total}}
+        
+        Transaction Id:{{id}}
+        <br>
+        <pre>     
+        <h2>Fill the following details to send a email</h2>
+        Username:            <input type="text" name="uname"><br>
+        YOUR MAIL:           <input type="email" name="from"><br>
+        Transaction Id:      <input type="text" name="id" value="{{id}}"><br>
+        Bill:                <input type="text" name="bill" value="{{total}}"><br><br>
+        Date:                <input type="date" name="date" min="{{mind}}" max="{{maxd}}">
+        <button class="btn btn-lg btn-primary btn-block" style="width: 250px" type="submit" value="submit">confirm</button>
+        </pre>
+        </form>
+    </body>
+</html>  
+{% endblock %}
+
+Aboutus.html
+{% extends 'signup/layout.html' %}
+{% block body %}
+<img src="/images/logo.jpg" alt="" width="200" height="200">
+<centre>
+<pre>
+<b>Saiprakash</b>
+<b>saisaran</b>
+</pre>
+</centre>
+{% endblock %}
+
+Navbar.html
+html>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <a class="navbar-brand" href="#">
+    <img src="/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+   
+  </a>
+  <a class="navbar-brand" href="#">Canteen Orders</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
+  aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="signin">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="aboutus">About Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<html>
+
+Views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import details
+from .models import foodItem
+from .models import cart
+from .models import transactions
+import uuid
+from django.core.mail import send_mail
+from django.conf import settings
+from datetime import date,timedelta
+
+def index(request):
+    return render(request,'signup/index.html')
+
+def signin(request):
+    return render(request,'signup/login.html')
+
+def register(request):
+    return render(request,'signup/register.html')
+
+def home(request):
+    bf=foodItem.objects.filter(typeof__exact='breakfast')
+    lch=foodItem.objects.filter(typeof__exact='lunch')
+    sck=foodItem.objects.filter(typeof__exact='snacks')
+    return render(request,'signup/home.html',{'bf':bf,'lch':lch,'sck':sck,'uname':uname})
+    
+
+def verify(request):
+    details_inst=details()
+    details_inst.firstName=request.POST.get('fname')
+    details_inst.lastName=request.POST.get('lName')
+    details_inst.phone=request.POST.get('phNo')
+    details_inst.gender=request.POST.get('gender')
+    details_inst.email=request.POST.get('email')
+    details_inst.username=request.POST.get('uName')
+    details_inst.password=request.POST.get('pWord')
+    cPass=request.POST.get('cPWord')
+    if(details_inst.password==cPass):
+        details_inst.save()
+        return render(request,'signup/login.html')
+    return render(request,'signup/register.html')
+
+def login(request):
+    user=request.POST.get('uName')
+    passw=request.POST.get('pass')
+    users=details.objects.get(username__exact=user)
+    npass=users.password
+    if npass==passw:
+        bf=foodItem.objects.filter(typeof__exact='breakfast')
+        lch=foodItem.objects.filter(typeof__exact='lunch')
+        sck=foodItem.objects.filter(typeof__exact='snacks')
+        return render(request,'signup/home.html',{'bf':bf,'lch':lch,'sck':sck})
+    else:
+        return render(request,'signup/login.html')
+
+def cartp(request):
+    fi=foodItem.objects.all()
+    sum=0
+    id=uuid.uuid4()
+    for i in fi:
+        cartd=cart()
+        cartd.name=i.name
+        cartd.typeof=i.typeof
+        cartd.price=int(i.price)
+        cartd.transcid=id
+        quant=int(request.POST.get(i.name))
+        if(quant>0):
+            cartd.quantity=quant
+            sum+=(i.price)*quant
+            cartd.save()
+    allcart=cart.objects.filter(transcid__exact=id)
+    completed=transactions()
+    completed.total=sum
+    completed.transactionId=id
+    completed.save()
+    mind=date.today().isoformat()
+    maxd=(date.today()+timedelta(days=7)).isoformat()
+    return render(request,'signup/cart.html',{'list':allcart,'total':sum,'id':id,'mind':mind,'maxd':maxd})
+
+def cmplt(request):
+    name=request.POST.get('uname')
+    fromm=request.POST.get('from')
+    id=request.POST.get('id')
+    bill=request.POST.get('bill')
+    li=['17311a05b0@sreenidhi.edu.in',fromm,]
+    date=request.POST.get('date')
+    cartitems = cart.objects.filter(transcid__exact=id)
+    il=' '
+    for i in cartitems:
+        il+='item:      '+i.name
+        il+='\tquantity:'+str(i.quantity)
+        il+='\n'
+
+    msg=name+'\n'+bill+'\n'+id+'\n'+date+'\n'+il
+    send_mail('thank you',msg,fromm,li,fail_silently=False)
+    return render(request,'signup/index.html')
+
+def aboutus(request):
+    return render(request,'signup/aboutus.html')
+    
+
+    
+        
+
+
+Manage.py
+#!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
+import os
+import sys
+
+def main():
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'canteenOrders.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
+
+
+Urls.py
+from django.urls import path
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from . import views
+
+urlpatterns = [
+    path('', views.index),
+    path('register',views.register),
+    path('verify',views.verify),
+    path('login',views.login),
+    path('signin',views.signin),
+    path('cartp',views.cartp),
+    path('cmplt',views.cmplt),
+    path('aboutus',views.aboutus),
+    path('home',views.home)
+]
+
+
+Tests.py
+from django.test import TestCase
+
+# Create your tests here.
+
+
+Models.py
+from django.db import models
+
+class details(models.Model):
+    firstName=models.CharField(max_length=25)
+    lastName=models.CharField(max_length=20)
+    phone=models.IntegerField()
+    gender=models.CharField(max_length=10)
+    email=models.EmailField(null=False)
+    username=models.CharField(primary_key=True,null=False,max_length=20)
+    password=models.CharField(max_length=12,null=False)
+
+    def __str__(self):
+        return self.firstName
+
+class foodItem(models.Model):
+    name=models.CharField(max_length=15)
+    typeof=models.CharField(max_length=15)
+    price=models.IntegerField()
+    img=models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name
+
+class cart(models.Model):
+    name=models.CharField(max_length=15)
+    typeof=models.CharField(max_length=15)
+    price=models.IntegerField()
+    quantity=models.IntegerField()
+    transcid=models.CharField(max_length=40,default='NULL')
+
+    def __str__(self):
+        return self.name
+
+class transactions(models.Model):
+    total=models.IntegerField()
+    transactionId=models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.transactionId
+
+    
+
+
+Apps.py
+from django.apps import AppConfig
+
+class signupConfig(AppConfig):
+    name = 'signup'
+
+
+Admin.py
+from django.contrib import admin
+from .models import details
+from .models import foodItem
+from .models import cart
+from .models import transactions
+
+admin.site.register(details)
+admin.site.register(foodItem)
+admin.site.register(cart)
+admin.site.register(transactions)
+
+# Register your models here.
+
+
+Settings.py
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'ry$inuyo=bvb_+jpu7&y3s6xpv2qn-ax-cn%-$8tk189g(hs@7'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER='charishma0731@gmail.com'
+EMAIL_HOST_PASSWORD='Rathodcherry'
+# Application definition
+
+INSTALLED_APPS = [
+    'signup.apps.signupConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'canteenOrders.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join('templates')
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'canteenOrders.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# Password validation
+# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'Asia/Kolkata'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_URL = '/static/'
+MEDIA_ROOT =  os.path.join(BASE_DIR) 
+MEDIA_URL = '/images/'
+
+
+Urls.py
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('signup/',include('signup.urls')),
+    path('admin/', admin.site.urls),
+]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+wsgi.py
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'canteenOrders.settings')
+
+application = get_wsgi_application()
+
+
+
+
+
+initial.py
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    initial = True
+
+    dependencies = [
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='details',
+            fields=[
+                ('firstName', models.CharField(max_length=25)),
+                ('lastName', models.CharField(max_length=20)),
+                ('phone', models.IntegerField()),
+                ('gender', models.CharField(max_length=10)),
+                ('email', models.EmailField(max_length=254, unique=True)),
+                ('username', models.CharField(max_length=20, primary_key=True, serialize=False)),
+                ('password', models.CharField(max_length=12)),
+            ],
+        ),
+    ]
+
+
+Auto.py
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='details',
+            name='phone',
+            field=models.CharField(max_length=10),
+        ),
+    ]
+# Generated by Django 2.2.5 on 2019-09-25 14:07
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0002_auto_20190925_1931'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='details',
+            name='phone',
+            field=models.IntegerField(),
+        ),
+    ]
+
+
+Fooditem.py
+# Generated by Django 2.2.5 on 2019-09-25 14:56
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0003_auto_20190925_1937'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='foodItem',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=15)),
+                ('typeof', models.CharField(max_length=15)),
+                ('price', models.IntegerField()),
+                ('img', models.ImageField(upload_to='images/')),
+            ],
+        ),
+    ]
+
+Cart.py
+# Generated by Django 2.2.5 on 2019-10-02 10:11
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0004_fooditem'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='cart',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=15)),
+                ('typeof', models.CharField(max_length=15)),
+                ('price', models.IntegerField()),
+                ('quantity', models.IntegerField()),
+            ],
+        ),
+    ]
+
+
+Transactions.py
+# Generated by Django 2.2.5 on 2019-10-02 13:38
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0005_cart'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='transactions',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('total', models.IntegerField()),
+                ('transactionId', models.CharField(max_length=30)),
+            ],
+        ),
+    ]
+
+
+Cart.html
+# Generated by Django 2.2.5 on 2019-10-03 07:26
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0006_transactions'),
+    ]
+
+    operations = [
+        migrations.AddField(
+            model_name='cart',
+            name='transcid',
+            field=models.CharField(default='NULL', max_length=30),
+        ),
+    ]
+
+
+Auto.py
+# Generated by Django 2.2.5 on 2019-10-23 14:03
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0007_cart_transcid'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='cart',
+            name='transcid',
+            field=models.CharField(default='NULL', max_length=40),
+        ),
+        migrations.AlterField(
+            model_name='transactions',
+            name='transactionId',
+            field=models.CharField(max_length=40),
+        ),
+    ]
+
+
+Auto.py
+# Generated by Django 2.2.5 on 2019-10-24 08:07
+
+from django.db import migrations, models
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('signup', '0008_auto_20191023_1933'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='details',
+            name='email',
+            field=models.EmailField(max_length=254),
+        ),
+    ]
+
+
+
+
+
+
+
+
+
